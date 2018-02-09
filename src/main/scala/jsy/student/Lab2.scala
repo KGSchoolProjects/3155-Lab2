@@ -97,6 +97,7 @@ object Lab2 extends jsy.util.JsyApplication with Lab2Like {
         uop match {
         case Neg => N(-toNumber(eval(env, e1)))
         case Not => B(!toBoolean(eval(env,e1)))
+        case _ => throw new UnsupportedOperationException
       }
 
       case Binary(bop,e1,e2) =>
@@ -106,7 +107,7 @@ object Lab2 extends jsy.util.JsyApplication with Lab2Like {
               case (S(e1), S(e2)) => S(e1 + e2)
               case (S(e1), e2) => S(e1 + toStr(eval(env,e2)))
               case (e1, S(e2)) => S(toStr(eval(env,e1)) + e2)
-              case (e1, e2) => eval(env,e1) + eval(env,e2)
+              //case (e1, e2) => eval(env,e1) + eval(env,e2)
               case _ => N(toNumber(eval(env, e1)) + toNumber(eval(env,e2)))
             }
           case Minus =>

@@ -21,7 +21,7 @@ val str = toStr(B(true))
 val negFourAST = parse("-4")
 
 // Evaluate that JavaScripty expression.
-//eval(negFourAST)
+eval(negFourAST)
 
 // For convenience, we also have an eval function that takes a string,
 // which calls the parser and then delegates to your eval function.

@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f2735236-a821-4bb4-9c27-20229b488250" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/src/main/scala/jsy/student/Lab2.scala" afterPath="$PROJECT_DIR$/src/main/scala/jsy/student/Lab2.scala" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/jsy/student/Lab2Worksheet.sc" afterPath="$PROJECT_DIR$/src/main/scala/jsy/student/Lab2Worksheet.sc" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/project/project/target/" />
@@ -34,18 +35,8 @@
       <file leaf-file-name="Lab2.scala" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/jsy/student/Lab2.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="341">
-              <caret line="34" column="5" lean-forward="true" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Lab2.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../Matt-PL1/PL/lab2-elijah-matt/src/main/scala/jsy/student/Lab2.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="166">
-              <caret line="283" column="30" lean-forward="false" selection-start-line="283" selection-start-column="30" selection-end-line="283" selection-end-column="30" />
+            <state relative-caret-position="102">
+              <caret line="96" column="19" lean-forward="true" selection-start-line="96" selection-start-column="19" selection-end-line="96" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -64,8 +55,8 @@
       <file leaf-file-name="Lab2Worksheet.sc" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/jsy/student/Lab2Worksheet.sc">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="218">
-              <caret line="18" column="22" lean-forward="false" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
+            <state relative-caret-position="228">
+              <caret line="27" column="23" lean-forward="true" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -85,8 +76,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/../../Matt-PL1/PL/lab2-elijah-matt/src/main/scala/jsy/student/Lab2.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/jsy/student/Lab2Worksheet.sc" />
         <option value="$PROJECT_DIR$/src/main/scala/jsy/student/Lab2.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/jsy/student/Lab2Worksheet.sc" />
       </list>
     </option>
   </component>
@@ -477,22 +468,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/jsy/student/Lab2Worksheet.sc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="18" column="22" lean-forward="false" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Lab1/Lab1/src/main/scala/jsy/student/Lab1.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2477">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../Matt-PL1/PL/lab2-elijah-matt/src/main/scala/jsy/student/Lab2Worksheet.sc">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="310">
@@ -517,10 +492,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../Lab1/Lab1/src/main/scala/jsy/student/Lab1.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2477">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/jsy/student/Lab2Worksheet.sc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="27" column="23" lean-forward="true" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/jsy/student/Lab2.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="34" column="5" lean-forward="true" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
+        <state relative-caret-position="102">
+          <caret line="96" column="19" lean-forward="true" selection-start-line="96" selection-start-column="19" selection-end-line="96" selection-end-column="19" />
           <folding />
         </state>
       </provider>
