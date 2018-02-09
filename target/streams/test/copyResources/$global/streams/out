@@ -1,0 +1,10 @@
+[0m[[0m[0mdebug[0m] [0m[0mCopy resource mappings: [0m
+[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\Steve\Dropbox\CSCI3155\Lab2\src\test\resources\lab2,C:\Users\Steve\Dropbox\CSCI3155\Lab2\target\scala-2.11\test-classes\lab2)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\Steve\Dropbox\CSCI3155\Lab2\src\test\resources\lab2\test2001_boolean.ans,C:\Users\Steve\Dropbox\CSCI3155\Lab2\target\scala-2.11\test-classes\lab2\test2001_boolean.ans)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\Steve\Dropbox\CSCI3155\Lab2\src\test\resources\lab2\test2001_boolean.jsy,C:\Users\Steve\Dropbox\CSCI3155\Lab2\target\scala-2.11\test-classes\lab2\test2001_boolean.jsy)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\Steve\Dropbox\CSCI3155\Lab2\src\test\resources\lab2\test2002_undefined.ans,C:\Users\Steve\Dropbox\CSCI3155\Lab2\target\scala-2.11\test-classes\lab2\test2002_undefined.ans)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\Steve\Dropbox\CSCI3155\Lab2\src\test\resources\lab2\test2002_undefined.jsy,C:\Users\Steve\Dropbox\CSCI3155\Lab2\target\scala-2.11\test-classes\lab2\test2002_undefined.jsy)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\Steve\Dropbox\CSCI3155\Lab2\src\test\resources\lab2\test2013_undefinedplusnumber.ans,C:\Users\Steve\Dropbox\CSCI3155\Lab2\target\scala-2.11\test-classes\lab2\test2013_undefinedplusnumber.ans)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\Steve\Dropbox\CSCI3155\Lab2\src\test\resources\lab2\test2013_undefinedplusnumber.jsy,C:\Users\Steve\Dropbox\CSCI3155\Lab2\target\scala-2.11\test-classes\lab2\test2013_undefinedplusnumber.jsy)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\Steve\Dropbox\CSCI3155\Lab2\src\test\resources\lab2\test2036_variablelog.ans,C:\Users\Steve\Dropbox\CSCI3155\Lab2\target\scala-2.11\test-classes\lab2\test2036_variablelog.ans)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\Steve\Dropbox\CSCI3155\Lab2\src\test\resources\lab2\test2036_variablelog.jsy,C:\Users\Steve\Dropbox\CSCI3155\Lab2\target\scala-2.11\test-classes\lab2\test2036_variablelog.jsy)[0m

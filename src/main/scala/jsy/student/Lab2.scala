@@ -63,9 +63,8 @@ object Lab2 extends jsy.util.JsyApplication with Lab2Like {
     (v: @unchecked) match {
       case N(n) => n
       case B(b) => if (b) 1.0 else 0.0
-      case S(s) => try s.toDouble catch {case _ => ???}
+      case S(s) => s.toDouble
       case Undefined => Double.NaN
-      case _ => ???
     }
   }
 
@@ -76,7 +75,6 @@ object Lab2 extends jsy.util.JsyApplication with Lab2Like {
       case S(s) => if (s == "") false else true
       case N(n) => if (n.isNaN) false else if (n == 0) false else true
       case Undefined => false
-      case _ => ???
     }
   }
 
@@ -85,20 +83,42 @@ object Lab2 extends jsy.util.JsyApplication with Lab2Like {
     (v: @unchecked) match {
       case S(s) => s
       case Undefined => "undefined"
-      case N(n) => n.toString
+      case N(n) => if (n.isWhole) "%.0f" format n else n.toString //from prettyNumber in ast.scala
       case B(b) => if (b) "true" else "false"
-      case _ => ???
     }
   }
 
   def eval(env: Env, e: Expr): Expr = {
     e match {
       /* Base Cases */
+      case N(_) | B(_) | S(_) | Undefined => e
 
+      case Unary(uop, e1) =>
+        uop match {
+        case Neg => N(-toNumber(eval(env, e1)))
+        case Not => B(!toBoolean(eval(env,e1)))
+      }
+
+      case Binary(bop,e1,e2) =>
+        bop match {
+          case Plus => ???
+          case Minus => ???
+          case Times => ???
+          case Div => ???
+          case Eq => ???
+          case Ne => ???
+          case Lt => ???
+          case Le => ???
+          case Gt => ???
+          case Ge => ???
+          case And => ???
+          case Or => ???
+          case Seq => ???
+        }
       /* Inductive Cases */
       case Print(e1) => println(pretty(eval(env, e1))); Undefined
 
-      case _ => ???
+      //case _ => ???
     }
   }
 

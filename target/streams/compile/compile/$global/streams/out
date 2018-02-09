@@ -1,0 +1,4 @@
+[0m[[0m[33mwarn[0m] [0m[0mC:\Users\Steve\Dropbox\CSCI3155\Lab2\src\main\scala\jsy\student\Lab2.scala:66:47: This catches all Throwables. If this is really intended, use `case _ : Throwable` to clear this warning.[0m
+[0m[[0m[33mwarn[0m] [0m[0m      case S(s) => try s.toDouble catch {case _ => ???}[0m
+[0m[[0m[33mwarn[0m] [0m[0m                                              ^[0m
+[0m[[0m[33mwarn[0m] [0m[0mone warning found[0m
