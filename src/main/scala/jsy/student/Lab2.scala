@@ -106,7 +106,7 @@ object Lab2 extends jsy.util.JsyApplication with Lab2Like {
               case (S(e1), S(e2)) => S(e1 + e2)
               case (S(e1), e2) => S(e1 + toStr(eval(env,e2)))
               case (e1, S(e2)) => S(toStr(eval(env,e1)) + e2)
-              case (e1, e2) => eval(env,e1)+eval(env,e2)
+              case (e1, e2) => eval(env,e1) + eval(env,e2)
               case _ => N(toNumber(eval(env, e1)) + toNumber(eval(env,e2)))
             }
           case Minus =>
@@ -174,9 +174,15 @@ object Lab2 extends jsy.util.JsyApplication with Lab2Like {
                 B(true)
               else B(false)
             }
-          case And => ???
-          case Or => ???
-          case Seq => ???
+          case And =>
+            (eval(env,e1), eval(env,e2)) match {
+              case _ => if (toBoolean(eval(env,e1))) eval(env,e2) else eval(env,e1)
+            }
+          case Or =>
+            (eval(env,e1), eval(env,e2)) match {
+              case _ => if (toBoolean(eval(env,e1))) eval(env,e1) else eval(env,e2)
+            }
+          case Seq => eval(env,e1);eval(env,e2)
         }
       /* Inductive Cases */
       case Print(e1) => println(pretty(eval(env, e1))); Undefined
