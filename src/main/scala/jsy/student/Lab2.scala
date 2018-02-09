@@ -130,12 +130,50 @@ object Lab2 extends jsy.util.JsyApplication with Lab2Like {
               case (S(e1), e2) => N(Double.NaN)
               case _ => N(toNumber(eval(env, e1)) * toNumber(eval(env, e2)))
           }
-          case Eq => ???
-          case Ne => ???
-          case Lt => ???
-          case Le => ???
-          case Gt => ???
-          case Ge => ???
+          case Eq =>
+            (eval(env,e1), eval(env,e2)) match {
+              case _ => if (N(toNumber(eval(env,e1))) == N(toNumber(eval(env,e2))))
+                B(true)
+              else B(false)
+            }
+          case Ne =>
+            (eval(env,e1), eval(env,e2)) match {
+              case _ => if (N(toNumber(eval(env,e1))) == N(toNumber(eval(env,e2))))
+                B(false)
+              else B(true)
+            }
+          case Lt =>
+            (eval(env,e1), eval(env,e2)) match {
+              case _ => if (N(toNumber(eval(env,e1))) == N(toNumber(eval(env,e2))))
+                B(false)
+              else if (toNumber(eval(env,e1)) > toNumber(eval(env,e2)))
+                B(false)
+              else B(true)
+            }
+          case Le =>
+            (eval(env,e1), eval(env,e2)) match {
+              case _ => if (N(toNumber(eval(env,e1))) == N(toNumber(eval(env,e2))))
+                B(true)
+              else if (toNumber(eval(env,e1)) > toNumber(eval(env,e2)))
+                B(false)
+              else B(true)
+            }
+          case Gt =>
+            (eval(env,e1), eval(env,e2)) match {
+              case _ => if (N(toNumber(eval(env,e1))) == N(toNumber(eval(env,e2))))
+                B(false)
+              else if (toNumber(eval(env,e1)) > toNumber(eval(env,e2)))
+                B(true)
+              else B(false)
+            }
+          case Ge =>
+            (eval(env,e1), eval(env,e2)) match {
+              case _ => if (N(toNumber(eval(env,e1))) == N(toNumber(eval(env,e2))))
+                B(true)
+              else if (toNumber(eval(env,e1)) > toNumber(eval(env,e2)))
+                B(true)
+              else B(false)
+            }
           case And => ???
           case Or => ???
           case Seq => ???
