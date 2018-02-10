@@ -99,6 +99,7 @@ object Lab2 extends jsy.util.JsyApplication with Lab2Like {
 
       case Var(x) => lookup(env,x)
 
+      /* Inductive Cases */
         //Set variable to e1, extend env to include new variable, evaluate e2
       case ConstDecl(x,e1,e2) => {
         val v = eval(env, e1)
@@ -118,6 +119,8 @@ object Lab2 extends jsy.util.JsyApplication with Lab2Like {
 
       case Binary(bop,e1,e2) =>
         bop match {
+            //Arithmatic Operators.
+            //Plus. Strings append each other.
           case Plus =>
             (eval(env,e1), eval(env,e2)) match {
               case (S(e1), S(e2)) => S(e1 + e2)
@@ -126,93 +129,87 @@ object Lab2 extends jsy.util.JsyApplication with Lab2Like {
               //case (e1, e2) => eval(env,e1) + eval(env,e2)
               case _ => N(toNumber(eval(env, e1)) + toNumber(eval(env,e2)))
             }
+
+            //Minus. Strings result in NaN
           case Minus =>
-            (eval(env,e1), eval(env,e2)) match {
-              case (S(e1), S(e2)) => N(Double.NaN)
-              case (e1, S(e2)) => N(Double.NaN)
-              case (S(e1), e2) => N(Double.NaN)
-              case _ => N(toNumber(eval(env, e1)) - toNumber(eval(env, e2)))
-            }
+              N(toNumber(eval(env, e1)) - toNumber(eval(env, e2)))
+
+            //Times. Strings result in NaN
           case Times =>
-            (eval(env,e1), eval(env,e2)) match {
-              case (S(e1), S(e2)) => N(Double.NaN)
-              case (e1, S(e2)) => N(Double.NaN)
-              case (S(e1), e2) => N(Double.NaN)
-              case _ => N(toNumber(eval(env, e1)) * toNumber(eval(env, e2)))
-            }
+              N(toNumber(eval(env, e1)) * toNumber(eval(env, e2)))
+
+            //Divide. Strings result in NaN
           case Div =>
-            (eval(env,e1), eval(env,e2)) match {
-              case (S(e1), S(e2)) => N(Double.NaN)
-              case (e1, S(e2)) => N(Double.NaN)
-              case (S(e1), e2) => N(Double.NaN)
-              case _ => N(toNumber(eval(env, e1)) / toNumber(eval(env, e2)))
-          }
+              N(toNumber(eval(env, e1)) / toNumber(eval(env, e2)))
+
+
+            //Equal
           case Eq =>
-            (eval(env,e1), eval(env,e2)) match {
-              case _ => if (N(toNumber(eval(env,e1))) == N(toNumber(eval(env,e2))))
+            if (N(toNumber(eval(env,e1))) == N(toNumber(eval(env,e2))))
                 B(true)
               else B(false)
-            }
+
+
+            //Not equal.
           case Ne =>
-            (eval(env,e1), eval(env,e2)) match {
-              case _ => if (N(toNumber(eval(env,e1))) == N(toNumber(eval(env,e2))))
+              if (N(toNumber(eval(env,e1))) == N(toNumber(eval(env,e2))))
                 B(false)
               else B(true)
-            }
+
+
+            //Less than
           case Lt =>
-            (eval(env,e1), eval(env,e2)) match {
-              case _ => if (N(toNumber(eval(env,e1))) == N(toNumber(eval(env,e2))))
+              if (N(toNumber(eval(env,e1))) == N(toNumber(eval(env,e2))))
                 B(false)
               else if (toNumber(eval(env,e1)) > toNumber(eval(env,e2)))
                 B(false)
               else B(true)
-            }
+
+
+            //Less than or Equal to
           case Le =>
-            (eval(env,e1), eval(env,e2)) match {
-              case _ => if (N(toNumber(eval(env,e1))) == N(toNumber(eval(env,e2))))
+              if (N(toNumber(eval(env,e1))) == N(toNumber(eval(env,e2))))
                 B(true)
               else if (toNumber(eval(env,e1)) > toNumber(eval(env,e2)))
                 B(false)
               else B(true)
-            }
+
+
+            //Greater than
           case Gt =>
-            (eval(env,e1), eval(env,e2)) match {
-              case _ => if (N(toNumber(eval(env,e1))) == N(toNumber(eval(env,e2))))
+              if (N(toNumber(eval(env,e1))) == N(toNumber(eval(env,e2))))
                 B(false)
               else if (toNumber(eval(env,e1)) > toNumber(eval(env,e2)))
                 B(true)
               else B(false)
-            }
+
+            //Greater than or equal to
           case Ge =>
-            (eval(env,e1), eval(env,e2)) match {
-              case _ => if (N(toNumber(eval(env,e1))) == N(toNumber(eval(env,e2))))
+            if (N(toNumber(eval(env,e1))) == N(toNumber(eval(env,e2))))
                 B(true)
               else if (toNumber(eval(env,e1)) > toNumber(eval(env,e2)))
                 B(true)
               else B(false)
-            }
 
             //Logical AND. "Returns expr1 if it can be converted to false; otherwise, returns expr2.
           // Thus, when used with Boolean values, && returns true if both operands are true; otherwise, returns false."
           case And =>
-            (eval(env,e1), eval(env,e2)) match {
-              case _ => if (toBoolean(eval(env,e1))) eval(env,e2) else eval(env,e1)
-            }
+              if (toBoolean(eval(env,e1))) eval(env,e2) else eval(env,e1)
 
             //Logical OR. "Returns expr1 if it can be converted to true; otherwise, returns expr2.
           // Thus, when used with Boolean values, || returns true if either operand is true."
           case Or =>
-            (eval(env,e1), eval(env,e2)) match {
-              case _ => if (toBoolean(eval(env,e1))) eval(env,e1) else eval(env,e2)
-            }
+            if (toBoolean(eval(env,e1))) eval(env,e1) else eval(env,e2)
+
           case Seq => eval(env,e1);eval(env,e2)
         }
         //End BOps
+
         //Ternary operator. If X, then y, else z.
       case If(e1,e2,e3) =>
         if (toBoolean(eval(env,e1))) eval(env,e2) else eval(env,e3)
 
-      /* Inductive Cases */
+
       case Print(e1) => println(pretty(eval(env, e1))); Undefined
 
       case _ => Undefined
