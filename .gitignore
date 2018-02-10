@@ -2,3 +2,8 @@
 *.xml
 *.xml
 .idea/workspace.xml
+target/streams/compile/compileIncremental/$global/streams/export
+target/streams/compile/compileIncremental/$global/streams/out
+target/streams/compile/compileIncSetup/$global/streams/inc_compile_2.11.zip
+target/streams/test/definedTests/$global/streams/out
+target/scala-2.11/classes/jsy/student/Lab2$.class

@@ -63,8 +63,9 @@ object Lab2 extends jsy.util.JsyApplication with Lab2Like {
     (v: @unchecked) match {
       case N(n) => n
       case B(b) => if (b) 1.0 else 0.0
-      case S(s) => s.toDouble
+      case S(s) => try s.toDouble catch {case _ : Throwable => Double.NaN}
       case Undefined => Double.NaN
+      case _ => throw new UnsupportedOperationException
     }
   }
 
@@ -75,6 +76,7 @@ object Lab2 extends jsy.util.JsyApplication with Lab2Like {
       case S(s) => if (s == "") false else true
       case N(n) => if (n.isNaN) false else if (n == 0) false else true
       case Undefined => false
+      case _ => throw new UnsupportedOperationException
     }
   }
 
@@ -85,14 +87,28 @@ object Lab2 extends jsy.util.JsyApplication with Lab2Like {
       case Undefined => "undefined"
       case N(n) => if (n.isWhole) "%.0f" format n else n.toString //from prettyNumber in ast.scala
       case B(b) => if (b) "true" else "false"
+      case _ => throw new UnsupportedOperationException
     }
   }
 
   def eval(env: Env, e: Expr): Expr = {
     e match {
       /* Base Cases */
+        //If we reach a value, simply return that value.
       case N(_) | B(_) | S(_) | Undefined => e
 
+      case Var(x) => lookup(env,x)
+
+        //Set variable to e1, extend env to include new variable, evaluate e2
+      case ConstDecl(x,e1,e2) => {
+        val v = eval(env, e1)
+        val env2 = extend(env, x, v)
+        eval(env2, e2)
+      }
+
+        //Neg and Not are fairly simple. Eval the inner expression,
+        //then convert it to a number/boolean, then neg/not and return
+        //an expression.
       case Unary(uop, e1) =>
         uop match {
         case Neg => N(-toNumber(eval(env, e1)))
@@ -129,7 +145,7 @@ object Lab2 extends jsy.util.JsyApplication with Lab2Like {
               case (S(e1), S(e2)) => N(Double.NaN)
               case (e1, S(e2)) => N(Double.NaN)
               case (S(e1), e2) => N(Double.NaN)
-              case _ => N(toNumber(eval(env, e1)) * toNumber(eval(env, e2)))
+              case _ => N(toNumber(eval(env, e1)) / toNumber(eval(env, e2)))
           }
           case Eq =>
             (eval(env,e1), eval(env,e2)) match {
@@ -175,16 +191,27 @@ object Lab2 extends jsy.util.JsyApplication with Lab2Like {
                 B(true)
               else B(false)
             }
+
+            //Logical AND. "Returns expr1 if it can be converted to false; otherwise, returns expr2.
+          // Thus, when used with Boolean values, && returns true if both operands are true; otherwise, returns false."
           case And =>
             (eval(env,e1), eval(env,e2)) match {
               case _ => if (toBoolean(eval(env,e1))) eval(env,e2) else eval(env,e1)
             }
+
+            //Logical OR. "Returns expr1 if it can be converted to true; otherwise, returns expr2.
+          // Thus, when used with Boolean values, || returns true if either operand is true."
           case Or =>
             (eval(env,e1), eval(env,e2)) match {
               case _ => if (toBoolean(eval(env,e1))) eval(env,e1) else eval(env,e2)
             }
           case Seq => eval(env,e1);eval(env,e2)
         }
+        //End BOps
+        //Ternary operator. If X, then y, else z.
+      case If(e1,e2,e3) =>
+        if (toBoolean(eval(env,e1))) eval(env,e2) else eval(env,e3)
+
       /* Inductive Cases */
       case Print(e1) => println(pretty(eval(env, e1))); Undefined
 
